@@ -65,11 +65,13 @@ foreach $dir ( @dirs ) {
 	unless ( open(LOG,">$filename") ) {
 		die "Cant write to $filename: $!\n";
 	}
+
 	my($days) = time - $age;
 	$days = $days / ( 60 * 60 * 24 );
 
 	print LOG sprintf("%s Days %d\tLocaltime %s\tRuntime %s\tFile %s (%s)\n",$age, $days, scalar localtime($age), $runtime, $file,$dir);
 	close(LOG);
+	
 	$i++;
 }
 
